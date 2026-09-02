@@ -4,7 +4,7 @@ import AppInput from '../src/components/AppInput'
 import AppButton from '../src/components/AppButton'
 
 
-export default function Login(){
+export default function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)

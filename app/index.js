@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
+import { router } from "expo-router";
 import { StyleSheet, View, Text, TouchableOpacity, Alert, KeyboardAvoidingView, Platform } from 'react-native'
 import AppInput from '../src/components/AppInput'
 import AppButton from '../src/components/AppButton'
 
 
-export default function Login(){
+export default function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
@@ -39,7 +40,7 @@ export default function Login(){
                     title='Entrar'
                     loading={loading}
                 />
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => router.push('/register')}>
                     <Text style={styles.link}>Criar nova conta</Text>
                 </TouchableOpacity>
             </View>
