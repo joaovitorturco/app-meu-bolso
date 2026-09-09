@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         borderColor: COLORS.border,
         borderRadius: RADIUS.md,
         padding: SPACING.md,
-        fontSize: 16
+        fontSize: 16,
     },
     errorInput: {
         borderColor: COLORS.danger,
@@ -40,3 +40,10 @@ const styles = StyleSheet.create({
         marginTop: 4
     }
 })
+
+
+
+
+
+
+

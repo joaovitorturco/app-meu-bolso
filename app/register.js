@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import { StyleSheet, View, Text, TouchableOpacity, Alert, KeyboardAvoidingView, Platform } from 'react-native'
 import AppInput from '../src/components/AppInput'
 import AppButton from '../src/components/AppButton'
+import { router } from 'expo-router'
 
 
 export default function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
     const [loading, setLoading] = useState(false)
 
     return (
@@ -15,7 +17,7 @@ export default function Login() {
         >
             <View>
                 <Text style={styles.title}>
-                    Criar Nova Conta
+                    Criar Conta
                 </Text>
                 <Text style={styles.subtitle}>
                     Preencha os dados para começar 
@@ -35,12 +37,19 @@ export default function Login() {
                     value={password}
                     onChangeText={setPassword}
                 />
+                <AppInput
+                    label='Confirmar senha'
+                    securetextEntry
+                    placeholder='Confirmar senha'
+                    value={confirmPassword}
+                    onChangeText={setConfirmPassword}
+                />
                 <AppButton
                     title='Entrar'
                     loading={loading}
                 />
-                <TouchableOpacity>
-                    <Text style={styles.link}>Criar nova conta</Text>
+                <TouchableOpacity onPress={() => router.push('/')}>
+                    <Text style={styles.link}>Voltar para Login</Text>
                 </TouchableOpacity>
             </View>
         </KeyboardAvoidingView>
