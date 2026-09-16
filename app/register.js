@@ -8,8 +8,22 @@ import { router } from 'expo-router'
 export default function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState('')
+    const [confirm, setConfirm] = useState('')
     const [loading, setLoading] = useState(false)
+
+    async function handleRegister() {
+        if (!email.trim() || !password.trim() || !confirm.trim()){
+            return Alert.alert("Atenção", "Preencha todos os campos")
+        }
+
+        if (password.length < 6){
+            return Alert.alert("Atenção", "A senha deve conter no minimo 6 caracteres")
+        }
+
+        if (password !== confirm){
+            return Alert.alert("Atenção", "As senhas não conferem.")
+        }
+    }
 
     return (
         <KeyboardAvoidingView style={styles.container}
@@ -41,12 +55,13 @@ export default function Login() {
                     label='Confirmar senha'
                     securetextEntry
                     placeholder='Confirmar senha'
-                    value={confirmPassword}
-                    onChangeText={setConfirmPassword}
+                    value={confirm}
+                    onChangeText={setConfirm}
                 />
                 <AppButton
-                    title='Entrar'
+                    title='Criar conta'
                     loading={loading}
+                    onPress={handleRegister}
                 />
                 <TouchableOpacity onPress={() => router.push('/')}>
                     <Text style={styles.link}>Voltar para Login</Text>
