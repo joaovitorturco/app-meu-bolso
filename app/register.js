@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity, Alert, KeyboardAvoidingView, 
 import AppInput from '../src/components/AppInput'
 import AppButton from '../src/components/AppButton'
 import { router } from 'expo-router'
+import { signUp } from '../src/services/authService'
 
 
 export default function Login() {
@@ -22,6 +23,22 @@ export default function Login() {
 
         if (password !== confirm){
             return Alert.alert("Atenção", "As senhas não conferem.")
+        }
+
+        try{
+            setLoading(true)
+            const { error } = await signUp(email.trim(), password)
+            if(error){
+                Alert.alert('Erro no cadastro', error.message)
+                console.log('Erro no cadastro', error.message)
+                return
+            } else{
+                Alert.alert('Sucesso!', 'Conta criada com sucesso, faça o login para continuar.')
+                alert('Sucesso!', 'Conta criada com sucesso, faça o login para continuar.')
+                router.replace('/')
+            }
+        }finally{
+            setLoading(false)
         }
     }
 
