@@ -16,11 +16,16 @@ export default function Login() {
         try {
             setLoading(true);
             const { error } = await signIn(email.trim(), password);
-            if (error) return alert('Erro no login', error.message);
-            console.log(error)
+            if (error) {
+                alert("Erro ao logar em sua conta"); //alert que aparece na web
+                return Alert.alert('Erro no login', error.message);   
+            }
             Alert.alert('Bem-vindo', 'Login realizado com sucesso.');
+            alert('Login realizado com sucesso'); //alert que aparece na web
         } catch (error) {
             Alert.alert('Erro', error.message || 'Não foi possível entrar.');
+            alert('Não foi possível realizar o login');//alert que aparece na web
+            console.log(error);
         } finally {
             setLoading(false);
         }

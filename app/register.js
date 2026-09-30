@@ -34,7 +34,7 @@ export default function Login() {
                 return
             } else{
                 Alert.alert('Sucesso!', 'Conta criada com sucesso, faça o login para continuar.')
-                alert('Sucesso!', 'Conta criada com sucesso, faça o login para continuar.')
+                alert('Sucesso! Conta criada com sucesso, faça o login para continuar.')//alert que aparece na web
                 router.replace('/')
             }
         }finally{
