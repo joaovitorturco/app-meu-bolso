@@ -20,11 +20,10 @@ export default function Login() {
                 alert("Erro ao logar em sua conta"); //alert que aparece na web
                 return Alert.alert('Erro no login', error.message);   
             }
-            Alert.alert('Bem-vindo', 'Login realizado com sucesso.');
-            alert('Login realizado com sucesso'); //alert que aparece na web
+            router.replace('/(app)/home')
         } catch (error) {
             Alert.alert('Erro', error.message || 'Não foi possível entrar.');
-            alert('Não foi possível realizar o login');//alert que aparece na web
+            alert('Não foi possível realizar o login'); //alert que aparece na web
             console.log(error);
         } finally {
             setLoading(false);
