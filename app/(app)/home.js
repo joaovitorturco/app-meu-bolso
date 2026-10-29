@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import AppButton from "../../src/components/AppButton"
 import BalanceCard from '../../src/components/BalanceCard'
 import SummaryCard from '../../src/components/SummaryCard'
+import FloatingButton from '../../src/components/FloatingButton'
 
 export default function home(){
     return (
@@ -37,6 +38,8 @@ export default function home(){
             </View>
 
             <Text style={styles.section}>Últimas transações</Text>
+
+            <FloatingButton/>
 
         </View>
     );
